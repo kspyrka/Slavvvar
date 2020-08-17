@@ -1,0 +1,43 @@
+﻿@page
+@model SlavVVar.MapaModel
+
+@{
+    ViewData["Title"] = "SlavVVar";
+}
+<b>
+    <h1>Mapa</h1>
+</b>
+
+<table>
+    @for (int i = 0; i < 5; i++)
+    {
+    <tr>
+        @for (int o = 0; o < 5; o++)
+        {
+            if (@Model.Mapa[i * 5 + o].Type == 0)
+            {
+                <td width="50" height="50" style="background:green"></td>
+            }
+            else if (@Model.Mapa[i * 5 + o].Type == 1)
+            {
+                <td width="50" height="50" style="background:yellow">
+                    @Model.Mapa[i * 5 + o].Data
+                </td>
+            }
+            else if (@Model.Mapa[i * 5 + o].Type == 2)
+            {
+                <td width="50" height="50" style="background:red">
+                    @Model.Mapa[i * 5 + o].Data
+                </td>
+            }
+            else if (@Model.Mapa[i * 5 + o].Type == 3)
+            {
+                <td width="50" height="50" style="background:orange">
+                    @Model.Mapa[i * 5 + o].Data
+                </td>
+            }
+        }
+    </tr>
+    }
+
+</table>

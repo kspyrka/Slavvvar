@@ -1,0 +1,50 @@
+﻿@page
+@model SlavVVar.KoszaryModel
+
+@{
+    ViewData["Title"] = "SlavVVar";
+}
+<b>
+    <h1>KOSZARY</h1>
+    <h3>Poziom: @Model.PoziomyBudynkow.Budynek1</h3>
+</b>
+
+<img src="~/Graphics/dzida.png" width="16" />
+<b>Dzidownik: </b>@Model.Wojska.Wojsko1
+<input type="text" /> <a href="#">Rekrutuj</a>
+<br />
+<img src="~/Graphics/miecz.png" width="16" />
+<b>Miecznik: </b>@Model.Wojska.Wojsko2
+<input type="text" /> <a href="#">Rekrutuj</a>
+<br />
+<img src="~/Graphics/topor.png" width="16" />
+<b>Topornik: </b>@Model.Wojska.Wojsko3
+<input type="text" /> <a href="#">Rekrutuj</a>
+<br />
+@switch (Model.UserData.Plemie)
+{
+    case 0:
+        <img src="~/Graphics/ksiezyc.png" width="16" /><b>Kapłan: </b>
+        break;
+    case 1:
+        <img src="~/Graphics/kosa.png" width="16" />
+        <b>Rzezimieszek: </b>
+        break;
+    case 2:
+        <img src="~/Graphics/sztylet.png" width="16" />
+        <b>Skrytobójca: </b>
+        break;
+    default:
+        <img src="~/Graphics/uderzenie_mlota.png" width="16" />
+        <b>Thor: </b>
+        break;
+}
+@if (Model.Wojska.Specjalny)
+{
+    @Html.Raw("1")
+}
+else
+{
+    @Html.Raw("0")
+    <a href="#">Rekrutuj</a>
+}
